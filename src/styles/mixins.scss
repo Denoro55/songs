@@ -1,0 +1,234 @@
+$blue: #6183FF;
+$blue2:  #007AFF;
+$grey: #C8C8C8;
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+li{
+	display: block;
+	margin: 0;
+}
+p{
+	margin: 0;
+	line-height: 24px;
+}
+a,a:hover,a:focus{
+	text-decoration: none;
+}
+
+@mixin tablet(){
+	@media screen and (max-width: 768px){
+		@content;
+	}
+}
+@mixin pc(){
+	@media screen and (max-width: 1200px){
+		@content;
+	}
+}
+
+.section{
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.20338);
+	background: white;
+	border-radius: 12px;
+	margin-top: 20px;
+}
+.main-block{
+	padding-bottom: 35px;
+	@include tablet{
+		padding-bottom: 20px;
+	}
+}
+.content{
+	width: 712px;
+	margin: 0 auto;
+	@include tablet{
+		width: 100%;
+	}
+}
+.main-content{
+	padding: 0 28px;
+	padding-right: 32px;
+	@include tablet{
+		padding-right: 18px;
+		padding-left: 19px;
+	}
+}
+
+::-webkit-scrollbar {width: 12px;height: 12px;}
+::-webkit-scrollbar-track-piece {background:rgba(0,0,0,0);}
+::-webkit-scrollbar-thumb:vertical {height:10px;background: #272c35;}
+::-webkit-scrollbar-thumb:vertical:hover {background: #71CA55;}
+::-webkit-scrollbar-thumb:horizontal {width:10px;background: #272c35;}
+::-webkit-scrollbar-thumb:horizontal:hover {background: #71CA55;}
+
+.title{
+	font-style: normal;
+	font-weight: 900;
+	line-height: 28px;
+	font-size: 24px;
+	letter-spacing: 0.36px;
+	@include tablet{
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 19px;
+	}
+}
+
+.section-padding{
+	padding: 19px 25px;
+	@include tablet{
+		padding: 15px 20px;
+	}
+}
+
+%clearfix{
+	&:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.wrapper{
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.container{
+	margin: 0 auto;
+	padding: 0 20px;
+	width: 990px;
+	@extend %clearfix;
+	@include pc{
+		width: 768px;
+	}
+	@include tablet{
+		width: 100%;
+	}
+}
+
+// layout
+
+.accordion__title{
+	width: 	100%;
+	@include tablet{
+		position: 	relative;
+		&:after{
+			content: '';
+			display: 	block;
+		    position: absolute;
+		    top: 50%;
+		    right: 	0;
+		    margin-top: -4px;
+		    width: 0;
+		    height: 0;
+		    border-style: solid;
+		    border-width: 5px 5px 0 5px;
+		    border-color: #757575 transparent transparent transparent;
+		}
+	}
+}
+.accordion__title-active{
+	&:after{
+		border-width: 0px 5px 5px 5px;
+	    border-color: transparent transparent #757575 transparent;
+	}
+}
+
+// buttons
+
+.audio__circle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70px;
+	height: 70px;
+	background: $blue;
+	border-radius: 50%;
+	&:hover{
+		cursor: pointer;
+	}
+	@include tablet{
+		width: 44px;
+		height: 44px;
+	}
+}
+
+.control-pause,.control-play{
+	height: 28px;
+	width: 	28px;
+}
+.control-pause{
+	svg{
+		height: 	100%;
+	}
+	width: 	21px;
+	@include tablet{
+		width: 15px;
+		height: 20px;
+	}
+}
+.control-play{
+	margin-right: -5px;
+}
+.control-hidden{
+	display: none;
+}
+
+// datepicker
+
+#datepicker{
+	width: 100%;
+	border: 0;
+	flex: 1;
+	min-width: 0;
+	margin-left: 9px;
+	outline: none;
+	font-size: 16px;
+	color: black;
+	height: 40px;
+	background: none;
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		font-size: 16px;
+		color: black;
+		@include tablet{
+			font-size: 	14px;
+		}
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+		font-size: 16px;
+		color: black;
+		@include tablet{
+			font-size: 	14px;
+		}
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+		font-size: 16px;
+		color: black;
+		@include tablet{
+			font-size: 	14px;
+		}
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		font-size: 16px;
+		color: black;
+		@include tablet{
+			font-size: 	14px;
+		}
+	}
+	&:hover{
+		cursor: default ;
+	}
+	@include tablet{
+		font-size: 	14px;
+	}
+}
