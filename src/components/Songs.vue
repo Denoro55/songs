@@ -5,8 +5,8 @@
 				<div class="title">Вам также понравится</div><a class="show__all" href="#">Показать все</a>
 			</div>
 			<div class="songs">
-				<div class="songs__row">
-					<div class="song">
+				<div v-for="(row,index) in songs" v-bind:key="index" class="songs__row">
+					<div v-for="(song,index) in songs[index]" v-bind:key="index"  class="song">
 						<div class="song__left">
 							<div class="audio__circle">
 								<div class="control-play">
@@ -23,69 +23,7 @@
 							</div>
 						</div>
 						<div class="song__right">
-							<div class="song__title">Поздравление с Днём Рождения ( Звонок из полиции )</div><a class="song__send" href="#">Отправить</a>
-						</div>
-					</div>
-					<div class="song">
-						<div class="song__left">
-							<div class="audio__circle">
-								<div class="control-play">
-									<svg viewBox="0 0 18 18">
-										<polyline points="0,0 18,9 0,18 " fill="white"></polyline>
-									</svg>
-								</div>
-								<div class="control-pause control-hidden">
-									<svg width="21" height="28">
-										<rect width="7" height="28" fill="white"></rect>
-										<rect x="14" width="7" height="28" fill="white"></rect>
-									</svg>
-								</div>
-							</div>
-						</div>
-						<div class="song__right">
-							<div class="song__title">Для прекрасной королевы красоты (древняя песня)</div><a class="song__send" href="#">Отправить</a>
-						</div>
-					</div>
-				</div>
-				<div class="songs__row">
-					<div class="song">
-						<div class="song__left">
-							<div class="audio__circle">
-								<div class="control-play">
-									<svg viewBox="0 0 18 18">
-										<polyline points="0,0 18,9 0,18 " fill="white"></polyline>
-									</svg>
-								</div>
-								<div class="control-pause control-hidden">
-									<svg width="21" height="28">
-										<rect width="7" height="28" fill="white"></rect>
-										<rect x="14" width="7" height="28" fill="white"></rect>
-									</svg>
-								</div>
-							</div>
-						</div>
-						<div class="song__right">
-							<div class="song__title">Пусть в День Рождения исполнится любое желание! (длинная песня)</div><a class="song__send" href="#">Отправить</a>
-						</div>
-					</div>
-					<div class="song">
-						<div class="song__left">
-							<div class="audio__circle">
-								<div class="control-play">
-									<svg viewBox="0 0 18 18">
-										<polyline points="0,0 18,9 0,18 " fill="white"></polyline>
-									</svg>
-								</div>
-								<div class="control-pause control-hidden">
-									<svg width="21" height="28">
-										<rect width="7" height="28" fill="white"></rect>
-										<rect x="14" width="7" height="28" fill="white"></rect>
-									</svg>
-								</div>
-							</div>
-						</div>
-						<div class="song__right">
-							<div class="song__title">Пусть будет твоя жизнь такой, как мечталось! (песня)</div><a class="song__send" href="#">Отправить</a>
+							<div class="song__title">{{song}}</div><a class="song__send" href="#">Отправить</a>
 						</div>
 					</div>
 				</div>
@@ -94,6 +32,19 @@
 		</div>
 	</div>
 </template>
+
+<script>
+	export default {
+		data(){
+			return {
+				songs: [
+					['Поздравление с Днём Рождения ( Звонок из полиции )','Для прекрасной королевы красоты (древняя песня)'],
+					['Пусть в День Рождения исполнится любое желание! (длинная песня)','Пусть будет твоя жизнь такой, как мечталось! (песня)']
+				]
+			}
+		}
+	}
+</script>
 
 <style lang="scss" scoped>
 	.section-2__header{
