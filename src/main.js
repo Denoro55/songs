@@ -1,12 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import VueTheMask from 'vue-the-mask'
-Vue.use(VueTheMask);
-
-import VueSlideToggle from 'vue-slide-toggle'
-Vue.use(VueSlideToggle)
-
 import $ from 'jquery' // подключаем глобально jquery
 window.$ = $;
 

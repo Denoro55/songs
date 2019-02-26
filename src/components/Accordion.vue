@@ -18,7 +18,6 @@
 </template>
 <script>
 	import AccordionElement from './Blocks/Accordion_Element.vue';
-
 	export default {
 		data(){
 			return {
@@ -29,7 +28,6 @@
 			AccordionElement
 		}
 	}
-
 </script>
 <style lang="scss" scoped>
 	.accordion{

@@ -4,32 +4,13 @@
 			<div class="title accordion__title accordion__title-active">Гарантии</div>
 			<div class="accord__target">
 				<ul class="guarantees">
-					<li class="guarantees__item">
-						<div class="guarantees__left"><img src="../assets/icons/1.svg" alt=""/></div>
-						<div class="guarantees__right">
-							<div class="guarantees__title">Вернем деньги</div>
-							<div class="guarantees__text">Если именник не получит от нас звонок с поздравлением.</div>
+					<li v-for="(g,i) in guarantees" v-bind:key="i" class="guarantees__item">
+						<div class="guarantees__left">
+							<img :src="require(`@/assets/icons/${g.imageUrl}`)"/>
 						</div>
-					</li>
-					<li class="guarantees__item">
-						<div class="guarantees__left"><img src="../assets/icons/2.svg" alt=""/></div>
 						<div class="guarantees__right">
-							<div class="guarantees__title">Гарантия доставки</div>
-							<div class="guarantees__text">Будем дозваниваться до поулчателя поздравления 10 раз.</div>
-						</div>
-					</li>
-					<li class="guarantees__item">
-						<div class="guarantees__left"><img src="../assets/icons/3.svg" alt=""/></div>
-						<div class="guarantees__right">
-							<div class="guarantees__title">Мы против спама</div>
-							<div class="guarantees__text">Номера телефонов используются только для указания услуг</div>
-						</div>
-					</li>
-					<li class="guarantees__item">
-						<div class="guarantees__left"><img src="../assets/icons/4.svg" alt=""/></div>
-						<div class="guarantees__right">
-							<div class="guarantees__title">Нашему сервису 7 лет</div>
-							<div class="guarantees__text">Мы отправили поздравления 2 миллионов раз</div>
+							<div class="guarantees__title">{{g.title}}</div>
+							<div class="guarantees__text">{{g.text}}</div>
 						</div>
 					</li>
 				</ul>
@@ -37,11 +18,38 @@
 		</div>
 	</div>
 </template>
-<script>
-	export default {
 
+<script>
+	export default{
+		data(){
+			return {
+				guarantees: [
+					{
+						imageUrl: '1.svg',
+						title: 'Вернем деньги',
+						text: 'Если именник не получит от нас звонок с поздравлением.'
+					},
+					{
+						imageUrl: '2.svg',
+						title: 'Гарантия доставки',
+						text: 'Будем дозваниваться до поулчателя поздравления 10 раз.'
+					},
+					{
+						imageUrl: '3.svg',
+						title: 'Мы против спама',
+						text: 'Номера телефонов используются только для указания услуг'
+					},
+					{
+						imageUrl: '4.svg',
+						title: 'Нашему сервису 7 лет',
+						text: 'Мы отправили поздравления 2 миллионов раз'
+					}
+				]
+			}
+		}
 	}
 </script>
+
 <style lang="scss" scoped>
 	.guarantees{
 		display: flex;

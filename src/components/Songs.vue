@@ -94,11 +94,7 @@
 		</div>
 	</div>
 </template>
-<script>
-	export default {
 
-	}
-</script>
 <style lang="scss" scoped>
 	.section-2__header{
 		display: flex;

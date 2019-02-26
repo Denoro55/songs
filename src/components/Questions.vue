@@ -9,11 +9,7 @@
 		</div>
 	</div>
 </template>
-<script>
-	export default {
 
-	}
-</script>
 <style lang="scss" scoped>
 	div.section-5{
 		background: #E3F2FD;

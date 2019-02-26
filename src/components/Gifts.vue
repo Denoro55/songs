@@ -181,7 +181,6 @@
 	import {mask} from 'vue-the-mask'
 	import Datepicker from 'vuejs-datepicker';
 	import {ru} from 'vuejs-datepicker/dist/locale'
-	import $ from 'jquery';
 	ru.months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 	if (window.innerWidth<767){
 		ru.months = ['янв.', 'фев.', 'мар.', 'апр.', 'мая', 'июн.', 'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
@@ -201,7 +200,7 @@
 		},
 		methods: {
 			checkWidth(){
-				let w = $(window).width();
+				let w = window.innerWidth;
 				if (w<=767){
 					this.pc = false
 				} else {
@@ -211,9 +210,9 @@
 		},
 		created(){
 			this.checkWidth();
-			$(window).resize(()=>{
+			window.onresize = ()=>{
 				this.checkWidth();
-			})
+			}
 		},
 		directives: {mask}
 	}
